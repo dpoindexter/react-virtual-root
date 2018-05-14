@@ -1,0 +1,24 @@
+{
+  "name": "react-virtual-root",
+  "version": "0.0.1",
+  "description": "Mounts a React application into a node with other content, for incrementally migrating to React",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpoindexter/react-virtual-root.git"
+  },
+  "keywords": [
+    "react",
+    "portal",
+    "hybrid"
+  ],
+  "author": "Daniel Poindexter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpoindexter/react-virtual-root/issues"
+  },
+  "homepage": "https://github.com/dpoindexter/react-virtual-root#readme"
+}
