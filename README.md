@@ -7,7 +7,7 @@ React is already great for incremental  adoption. React doesn't need to own the 
 
 However, each of these React feature roots is isolated from each of the other roots on the page. Without a common ancestor, isolated React roots can't share context, event bubbling, or state.
 
-If you're using something to externalize state already (like Redux) and you don't care about event bubbling or context, you probably don't need this. Just use `ReactDOM.render` directly.
+If you're using external state already (like Redux) and you don't care about event bubbling or context, you might not need this. But it might still be helpful to be able to think of your page as a single React application.
 
 ## Virtual root
 Calling `ReactDOM.render(<App />, element)` puts React in charge of the contents of `element`. If element is the root node of an existing server-rendered page that's only partially migrated to React, that's going to cause a problem.  `react-virtual-root` uses portals to mount React-rendered features into specific subtrees, while keeping the existing DOM in place in all the other subtrees. You can treat your page as a single React application while porting more and more of the functionality into React.
@@ -36,9 +36,11 @@ const Application = () => {
             <Node id="feature1">
                 <Feature1 />
             </Node>
-            <Node selector=".feature2">
-                <Feature2 />
-            </Node>
+            <Node selector=".feature2" render={() => (
+                initialData.model 
+                    ? <Feature2 model={initialData.model} /> 
+                    : null
+            )} />
         </VirtualRoot>
     );
 }
